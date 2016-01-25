@@ -1,6 +1,0 @@
-<<<<<<< HEAD
-Not Funny
-=======
-Not Funny
->>>>>>> b74228c86c955640b08af89d3bd42b8f652572f8
-Not Funny
