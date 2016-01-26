@@ -1,10 +1,15 @@
 package com.carloscaldas.algorithms.datastructure.graph;
 
-public class Vertex {
-	private final String id;
+import java.util.HashSet;
+import java.util.Set;
 
-	public Vertex(String id) {
+public class Node {
+	private final String id;
+	private final Set<Node> adjacentNodes;
+
+	public Node(String id) {
 		this.id = id;
+		this.adjacentNodes = new HashSet<Node>(); 
 	}
 
 	public String getId() {
@@ -24,10 +29,10 @@ public class Vertex {
 		if (this == obj)
 			return true;
 		
-		if ((obj instanceof Vertex) == false)
+		if ((obj instanceof Node) == false)
 			return false;
 		
-		Vertex other = (Vertex) obj;
+		Node other = (Node) obj;
 		return getId().equals(other.getId());
 	}
 
@@ -36,4 +41,7 @@ public class Vertex {
 		return id;
 	}
 
+	public Set<Node> getAdjacentNodes() {
+		return adjacentNodes;
+	}
 }

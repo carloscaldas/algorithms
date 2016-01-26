@@ -1,14 +1,17 @@
 package com.carloscaldas.algorithms.datastructure.graph;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
-public class BFS {
-	Set<Node> visited = new HashSet<Node>();
+public class BFSIteratorFactory  {
+	private Set<Node> visited = new HashSet<Node>();
+	private List<Node> result = new LinkedList<Node>();
 	
-	public void traverse(Node root) {
+	public Iterator<Node> BFSIterator(Node root) {
 		Queue<Node> queue = new LinkedList<Node>();
 		visit(root);
 		queue.add(root);
@@ -22,10 +25,13 @@ public class BFS {
 				}
 			}
 		}
+		return result.iterator();
 	}
 
 	private void visit(Node node) {
-		System.out.println("Visiting node:"+node.getId());
+		result.add(node);
 		visited.add(node);
 	}
+
+
 }
