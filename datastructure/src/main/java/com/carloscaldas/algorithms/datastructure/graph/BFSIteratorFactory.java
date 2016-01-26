@@ -7,18 +7,20 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
+import com.carloscaldas.algorithms.datastructure.graph.dijkstra.Vertex;
+
 public class BFSIteratorFactory  {
-	private Set<Node> visited = new HashSet<Node>();
-	private List<Node> result = new LinkedList<Node>();
+	private Set<Vertex> visited = new HashSet<Vertex>();
+	private List<Vertex> result = new LinkedList<Vertex>();
 	
-	public Iterator<Node> BFSIterator(Node root) {
-		Queue<Node> queue = new LinkedList<Node>();
+	public Iterator<Vertex> BFSIterator(Vertex root) {
+		Queue<Vertex> queue = new LinkedList<Vertex>();
 		visit(root);
 		queue.add(root);
 		
 		while (queue.isEmpty()==false){
-			Node node = queue.poll();
-			for(Node n: node.getAdjacentNodes()) {
+			Vertex node = queue.poll();
+			for(Vertex n: node.getAdjacentNodes()) {
 				if (visited.contains(n)==false) {
 					visit(n);
 					queue.add(n);
@@ -28,7 +30,7 @@ public class BFSIteratorFactory  {
 		return result.iterator();
 	}
 
-	private void visit(Node node) {
+	private void visit(Vertex node) {
 		result.add(node);
 		visited.add(node);
 	}
